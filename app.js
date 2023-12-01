@@ -4,8 +4,13 @@ const fs = require('fs');
 const path = require('path');
 const {getToken} = require('./utils/token');
 
+const test = require(path.join(__dirname, 'router', 'test'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+
+app.use('/test',test);
+
 // 批量导入router
 const routers = fs.readdirSync(path.join(__dirname, 'router'));
 routers.forEach(router => {
