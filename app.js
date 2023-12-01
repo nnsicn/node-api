@@ -16,6 +16,7 @@ const routers = fs.readdirSync(path.join(__dirname, 'router'));
 routers.forEach(router => {
     const routerModule = require(path.join(__dirname, 'router', router));
     app.use('/api', (req, res, next) => {
+      console.log(22222);
       if (req.url.includes("login")) {
         // 登录接口不需要验证 token，直接进入下一个中间件
         next();
